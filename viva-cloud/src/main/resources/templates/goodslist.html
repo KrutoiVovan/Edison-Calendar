@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Goods List</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<h1>List of available goods in warehouse</h1>
+<table>
+    <tr>
+        <td>
+            id<br/>
+        </td>
+        <td>
+            length
+        </td>
+        <td>
+            type
+        </td>
+    </tr>
+    <tr th:each="type : ${list}">
+        <td>
+            <span th:text="${type.id}">id</span><br/>
+        </td>
+        <td>
+            <span th:text="${type.length}">length</span><br/>
+        </td>
+        <td>
+            <span th:text="${type.type}">type</span><br/>
+        </td>
+    </tr>
+</table>
+<form method="POST" action="/goodslist">
+    <input type="number" name="id"/></br>
+    <input type="number" name="length"/></br>
+    <input type="radio" name="type" value="GARLAND" checked> Garland<br>
+    <input type="radio" name="type" value="OTHER"> Other<br>
+    <input type="submit" value="Submit">
+</form>
+<form method="POST" action=":8081/vivka">
+
+    <input type="submit" value="Submit2">
+</form>
+</body>
+</html>
